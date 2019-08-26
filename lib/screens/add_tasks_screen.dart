@@ -86,6 +86,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
                       setState(() {});
                       print(
                           "AddTasksScreen Length = ${widget.tasksList.length}");
+                      Navigator.pop(context);
                     }),
               ),
             )
