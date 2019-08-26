@@ -67,7 +67,7 @@ class _TaskScreenState extends State<TaskScreen> {
                         fontWeight: FontWeight.w700),
                   ),
                   Text(
-                    "12 Tasks",
+                    "${_TaskList.length} Tasks",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -121,6 +121,10 @@ class _TaskScreenState extends State<TaskScreen> {
                 : null),
       ),
       onChanged: (value) {
+        /// Instead Of Having This In A Stateful Widget As It Were You Can Lift
+        /// The State Up And Have This As A Stateless Widget That Just Takes In
+        /// An Anonymous Function That Passes In The Value To Change The Underlying
+        /// Model's "isComplete" Property.
         setState(() {
           print("Task Completed Was = ${_TaskList[ItemIndex].isComplete}");
           _TaskList[ItemIndex].isComplete = value;
