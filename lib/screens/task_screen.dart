@@ -110,10 +110,15 @@ class _TaskScreenState extends State<TaskScreen> {
   CheckboxListTile _buildSingleTask(int ItemIndex) {
     return CheckboxListTile(
       //controlAffinity: ListTileControlAffinity.leading,
+      activeColor: Colors.lightBlueAccent,
       value: _TaskList[ItemIndex].isComplete,
       title: Text(
         _TaskList[ItemIndex].taskName,
-        style: TextStyle(fontSize: 20.0),
+        style: TextStyle(
+            fontSize: 20.0,
+            decoration: _TaskList[ItemIndex].isComplete
+                ? TextDecoration.lineThrough
+                : null),
       ),
       onChanged: (value) {
         setState(() {

@@ -54,7 +54,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
             SizedBox(
               width: MediaQuery.of(context).size.width - 100,
               child: TextField(
-                /// ***N.B*** Always Align Your Text In Some Way Here ***N.B***
+                autofocus: true,
                 controller: _textEditController,
                 textAlign: TextAlign.center,
                 //  autofocus: true,
