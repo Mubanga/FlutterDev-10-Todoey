@@ -1,14 +1,16 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Task {
   String taskName;
-  bool isComplete;
-
-//  set isComplete(value) {
-//    _isComplete = value;
-//  }
+  bool _isComplete;
 
   Task({@required this.taskName}) {
-    isComplete = false;
+    _isComplete = false;
   }
+
+  void toggleComplete() {
+    _isComplete = !_isComplete;
+  }
+
+  bool get isComplete => _isComplete;
 }

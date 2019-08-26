@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey_flutter/model/task_data.dart';
 import 'package:todoey_flutter/model/task_model.dart';
 
 class AddTasksScreen extends StatefulWidget {
-  final List<Task> tasksList;
-
-  AddTasksScreen({this.tasksList});
+//  final List<Task> tasksList;
+//
+//  AddTasksScreen({this.tasksList});
 
   @override
   _AddTasksScreenState createState() => _AddTasksScreenState();
 
-  List<Task> getTaskList() {
-    print("getter AddTasksScreen Task List Length = ${tasksList.length}");
-    return tasksList;
-  }
+//  List<Task> getTaskList() {
+//    print("getter AddTasksScreen Task List Length = ${tasksList.length}");
+//    return tasksList;
+//  }
 }
 
 class _AddTasksScreenState extends State<AddTasksScreen> {
@@ -21,6 +23,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final _tasksList = Provider.of<TasksDataList>(context);
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -81,11 +84,13 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
                     ),
                     color: Colors.blue,
                     onPressed: () {
-                      widget.tasksList.add(Task(taskName: _taskName));
+                      _tasksList.addTask(Task(taskName: _taskName));
+                      //  widget.tasksList.add(Task(taskName: _taskName));
                       _textEditController.clear();
                       setState(() {});
                       print(
-                          "AddTasksScreen Length = ${widget.tasksList.length}");
+                          "AddTasksScreen Length = ${_tasksList.taskList.length}");
+                      //      "AddTasksScreen Length = ${widget.tasksList.length}");
                       Navigator.pop(context);
                     }),
               ),
