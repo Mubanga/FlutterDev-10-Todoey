@@ -4,10 +4,8 @@ import 'package:todoey_flutter/model/task_data.dart';
 import 'package:todoey_flutter/model/task_model.dart';
 
 class AddTasksScreen extends StatefulWidget {
-
   @override
   _AddTasksScreenState createState() => _AddTasksScreenState();
-
 }
 
 class _AddTasksScreenState extends State<AddTasksScreen> {

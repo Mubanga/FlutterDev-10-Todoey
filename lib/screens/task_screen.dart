@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoey_flutter/model/task_data.dart';
-import 'package:todoey_flutter/model/task_model.dart';
 import 'package:todoey_flutter/screens/add_tasks_screen.dart';
 import 'package:todoey_flutter/widgets/single_task_tile.dart';
 
@@ -12,12 +11,6 @@ class TaskScreen extends StatefulWidget {
 }
 
 class _TaskScreenState extends State<TaskScreen> {
-  List<Task> _TaskList = [
-    Task(taskName: "Buy milk"),
-    Task(taskName: "Buy eggs"),
-    Task(taskName: "Buy detergent"),
-  ];
-
   @override
   Widget build(BuildContext context) {
     // AddTasksScreen _buildAddTasksScreen = AddTasksScreen();
