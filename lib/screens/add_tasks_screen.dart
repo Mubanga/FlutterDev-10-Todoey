@@ -4,17 +4,10 @@ import 'package:todoey_flutter/model/task_data.dart';
 import 'package:todoey_flutter/model/task_model.dart';
 
 class AddTasksScreen extends StatefulWidget {
-//  final List<Task> tasksList;
-//
-//  AddTasksScreen({this.tasksList});
 
   @override
   _AddTasksScreenState createState() => _AddTasksScreenState();
 
-//  List<Task> getTaskList() {
-//    print("getter AddTasksScreen Task List Length = ${tasksList.length}");
-//    return tasksList;
-//  }
 }
 
 class _AddTasksScreenState extends State<AddTasksScreen> {
@@ -60,8 +53,6 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
                 autofocus: true,
                 controller: _textEditController,
                 textAlign: TextAlign.center,
-                //  autofocus: true,
-                //     controller: _textEditController,
                 onChanged: (newTaskName) {
                   _taskName = newTaskName;
                 },
@@ -85,12 +76,10 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
                     color: Colors.blue,
                     onPressed: () {
                       _tasksList.addTask(Task(taskName: _taskName));
-                      //  widget.tasksList.add(Task(taskName: _taskName));
                       _textEditController.clear();
                       setState(() {});
                       print(
                           "AddTasksScreen Length = ${_tasksList.taskList.length}");
-                      //      "AddTasksScreen Length = ${widget.tasksList.length}");
                       Navigator.pop(context);
                     }),
               ),

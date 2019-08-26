@@ -32,9 +32,6 @@ class _TaskScreenState extends State<TaskScreen> {
                   context: context,
                   builder: (context) => AddTasksScreen()).then((_) {
                 print("BottomSheet Closed.........");
-//                setState(() {
-//                  _TaskList = _buildAddTasksScreen.getTaskList();
-//                });
               });
             }),
         body: Column(
@@ -87,8 +84,6 @@ class _TaskScreenState extends State<TaskScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 15.0),
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
-                    //  shrinkWrap: true,
-                    //   itemCount: _TaskList.length,
                     itemCount:
                         Provider.of<TasksDataList>(context).taskList.length,
                     itemBuilder: (context, int ItemIndex) {
@@ -100,13 +95,7 @@ class _TaskScreenState extends State<TaskScreen> {
                             Provider.of<TasksDataList>(context).updateTask(
                                 Provider.of<TasksDataList>(context)
                                     .taskList[ItemIndex]);
-                            //         setState(() {});
-//                            print("Checkbox Is Checked = $isChecked");
-//                            Provider.of<TasksDataList>(context)
-//                                .taskList[ItemIndex]
-//                                .toggleComplete();
                           });
-                      //       return _buildSingleTask(ItemIndex);
                     },
                   ),
                 ),
@@ -121,34 +110,6 @@ class _TaskScreenState extends State<TaskScreen> {
           ],
         ),
       ),
-    );
-  }
-
-  CheckboxListTile _buildSingleTask(int ItemIndex) {
-    return CheckboxListTile(
-      //controlAffinity: ListTileControlAffinity.leading,
-      activeColor: Colors.lightBlueAccent,
-      value: _TaskList[ItemIndex].isComplete,
-      title: Text(
-        _TaskList[ItemIndex].taskName,
-        style: TextStyle(
-            fontSize: 20.0,
-            decoration: _TaskList[ItemIndex].isComplete
-                ? TextDecoration.lineThrough
-                : null),
-      ),
-      onChanged: (value) {
-        /// Instead Of Having This In A Stateful Widget As It Were You Can Lift
-        /// The State Up And Have This As A Stateless Widget That Just Takes In
-        /// An Anonymous Function That Passes In The Value To Change The Underlying
-        /// Model's "isComplete" Property.
-        setState(() {
-          print("Task Completed Was = ${_TaskList[ItemIndex].isComplete}");
-          _TaskList[ItemIndex].toggleComplete();
-          // _TaskList[ItemIndex].isComplete = value;
-          print("Task Completed Is Now = ${_TaskList[ItemIndex].isComplete}");
-        });
-      },
     );
   }
 }

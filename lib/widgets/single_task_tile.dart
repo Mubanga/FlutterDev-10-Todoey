@@ -24,20 +24,7 @@ class SingleTaskTile extends StatelessWidget {
       ),
       onChanged: (value) {
         print("Toggling Checkbox Now..... Index = $index");
-//        task.toggleComplete();
-//        print("Task Is Now = ${task.isComplete}");
         onTaskCheckedCallback(value);
-
-        /// Instead Of Having This In A Stateful Widget As It Were You Can Lift
-        /// The State Up And Have This As A Stateless Widget That Just Takes In
-        /// An Anonymous Function That Passes In The Value To Change The Underlying
-        /// Model's "isComplete" Property.
-//          setState(() {
-//            print("Task Completed Was = ${_TaskList[ItemIndex].isComplete}");
-//            _TaskList[ItemIndex].toggleComplete();
-//            // _TaskList[ItemIndex].isComplete = value;
-//            print("Task Completed Is Now = ${_TaskList[ItemIndex].isComplete}");
-//          });
       },
     );
   }
